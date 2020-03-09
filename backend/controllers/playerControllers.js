@@ -14,3 +14,21 @@ export const addNewPlayer = (req, res) => {
         res.json(Player);
     });
 };
+
+export const getPlayers = (req, res) => {
+    Player.find({}, (err, Player) => {
+        if(err) {
+            res.send(err);
+        }
+        res.json(Player);
+    });
+};
+
+export const getPlayerById = (req, res) => {
+    Player.findById(req.params.PlayerId, (err, res) => {
+        if(err) {
+            res.send(err);
+        }
+        res.json(Player);
+    });
+};
